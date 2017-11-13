@@ -106,6 +106,8 @@ Plugin 'godlygeek/tabular'
 Plugin 'ervandew/supertab'
 "Plugin 'tomasr/molokai'
 Plugin 'bling/vim-airline'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+Plugin 'roxma/vim-tmux-clipboard'
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
