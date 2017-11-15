@@ -108,6 +108,7 @@ Plugin 'ervandew/supertab'
 Plugin 'bling/vim-airline'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'roxma/vim-tmux-clipboard'
+Plugin 'mileszs/ack.vim'
 
 
 " plugin from http://vim-scripts.org/vim/scripts.html
@@ -268,4 +269,8 @@ let Tlist_Display_Prototype = 0
 let Tlist_Compact_Format = 1
 let Tlist_Auto_Open=1 
 let Tlist_Exit_OnlyWindow=1
+"""""""""ag search
+if executable('ag')
+      let g:ackprg = 'ag --vimgrep'
+endif
 
