@@ -53,7 +53,7 @@ export ZSH=~/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+ plugins=(git)
 #plugins=(zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -86,11 +86,9 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-printf '\e[?2004l'
-export WORKON_HOME=/home/Jimmy/Projects/virtualenv
-source /usr/bin/virtualenvwrapper.sh
-source /home/Jimmy/Projects/NoMoreCareVimrc/antigen.zsh
 # Load the oh-my-zsh's library.
+source /home/Jimmy/Projects/NoMoreCareVimrc/antigen.zsh
+#source antigen.zsh
 antigen use oh-my-zsh
 #
 # # Syntax highlighting bundle.
@@ -103,3 +101,11 @@ antigen theme ys
 #
 # # Tell Antigen that you're done.
 antigen apply
+setopt HIST_IGNORE_ALL_DUPS
+printf '\e[?2004l'
+export WORKON_HOME=/home/Jimmy/Projects/virtualenv
+source /usr/bin/virtualenvwrapper.sh
+[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
+
+autoload -U compinit && compinit -u
+
