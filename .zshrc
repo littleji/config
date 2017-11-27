@@ -53,7 +53,7 @@ export ZSH=~/.oh-my-zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
- plugins=(git)
+plugins=(git extract)
 #plugins=(zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -101,11 +101,26 @@ antigen theme ys
 #
 # # Tell Antigen that you're done.
 antigen apply
+
+# no zsh garbage
 setopt HIST_IGNORE_ALL_DUPS
+
+# a bug-fix method for paste sth to shell
 printf '\e[?2004l'
+
+#python virtualenvwrapper.sh
 export WORKON_HOME=/home/Jimmy/Projects/virtualenv
 source /usr/bin/virtualenvwrapper.sh
-[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
 
+#  autojump.sh
+[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
 autoload -U compinit && compinit -u
 
+# clear the dump file
+alias clzsh="rm ~/.zcomp* ~/.antigen/.zcomp*"
+
+#mount  nas files  to /mnt
+alias mnas="expect /etc/rc.d/mount_nas.expect"
+
+# shutdown touchpad 
+alias sdtpd="xinput set-int-prop 14 \"Device Enabled\" 8 0"

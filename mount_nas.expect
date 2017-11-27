@@ -1,0 +1,21 @@
+#!/bin/expect
+set password "EW^tSn"
+#echo $password
+spawn umount /mnt/liji
+sleep 1
+spawn mount -t cifs -o username=liji //10.20.10.25/liji /mnt/liji
+expect "Password" 
+send "$password\n"
+expect eof
+
+
+spawn umount /mnt/nas
+sleep 1
+spawn mount -t cifs -o username=liji //10.20.10.25/共享文件  /mnt/nas
+expect "Password" 
+send "$password\n"
+expect eof
+
+
+exit
+

@@ -7,6 +7,7 @@
  color molokai
 
  " Default Indentation
+  set hlsearch
   set autoindent
   set smartindent     " indent when
   set tabstop=4       " tab width
