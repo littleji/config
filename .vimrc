@@ -1,10 +1,14 @@
-"````````````````````````````````````````````````````````````````````````````````
+
  set fileencoding=utf-8
  filetype plugin indent on
  syntax on
 
  "color
  color molokai
+
+ " for gitgutter
+set updatetime=250
+
 
  " Default Indentation
   set hlsearch
@@ -92,26 +96,45 @@ Plugin 'VundleVim/Vundle.vim'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
-Plugin 'scrooloose/nerdtree'
+" filetree 
+Plugin 'scrooloose/nerdtree' 
+" fastter way to comment code
 Plugin 'scrooloose/nerdcommenter'
+" use F4 to display or not function list
 Plugin 'vim-scripts/taglist.vim'
+" quick commands to swtich between source files and header files quickly
 Plugin 'vim-scripts/a.vim'
+" complete code
 Plugin 'Shougo/neocomplete'
+" coordinate with neocomplete 
 Plugin 'Shougo/neco-syntax'
+" coordinate with neocomplete 
 Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/vimshell'
 Plugin 'Shougo/neosnippet-snippets'
 Plugin 'scrooloose/syntastic'
+" surroundings
 Plugin 'tpope/vim-surround'
+" display tags
 Plugin 'godlygeek/tabular'
+" command complete like newcomplete
 Plugin 'ervandew/supertab'
-"Plugin 'tomasr/molokai'
+" color molokai
+Plugin 'tomasr/molokai'
+" for statue line
 Plugin 'bling/vim-airline'
+" for tmux clip
 Plugin 'tmux-plugins/vim-tmux-focus-events'
+" for tmux clip
 Plugin 'roxma/vim-tmux-clipboard'
+" for search codd
 Plugin 'mileszs/ack.vim'
+" for html template engine former is jade
+Plugin 'digitaltoad/vim-pug'
+" for git diff 
+Plugin 'airblade/vim-gitgutter'
 
 
+"Plugin 'Shougo/vimshell'
 " plugin from http://vim-scripts.org/vim/scripts.html
 " Plugin 'L9'
 " Git plugin not hosted on GitHub
