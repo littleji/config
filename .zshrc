@@ -87,7 +87,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 # Load the oh-my-zsh's library.
-source /home/Jimmy/Projects/NoMoreCareVimrc/antigen.zsh
+source ~/Projects/config/antigen.zsh
 #source antigen.zsh
 antigen use oh-my-zsh
 #
@@ -109,11 +109,15 @@ setopt HIST_IGNORE_ALL_DUPS
 printf '\e[?2004l'
 
 #python virtualenvwrapper.sh
-export WORKON_HOME=/home/Jimmy/Projects/virtualenv
-source /usr/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/Projects/virtualenv
+source /usr/local/bin/virtualenvwrapper.sh
 
 #  autojump.sh
-[[ -s /root/.autojump/etc/profile.d/autojump.sh ]] && source /root/.autojump/etc/profile.d/autojump.sh
+## for linux
+#[[ -s ~/.autojump/etc/profile.d/autojump.sh ]] && source ~/.autojump/etc/profile.d/autojump.sh
+## for osx
+[[ -s /usr/local/Cellar/autojump/22.5.1/etc/profile.d/autojump.sh ]] && source /usr/local/Cellar/autojump/22.5.1/etc/profile.d/autojump.sh
+
 autoload -U compinit && compinit -u
 
 # clear the dump file

@@ -1,4 +1,74 @@
 
+ """"""""""""""""""""""""""""""""""""""""""""""""""""""
+" Vundle设置
+set nocompatible              " be iMproved, required
+filetype off                  " required
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+ 
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+" The following are examples of different formats supported.
+" Keep Plugin commands between vundle#begin/end.
+" plugin on GitHub repo
+" filetree 
+Plugin 'scrooloose/nerdtree' 
+" fastter way to comment code
+Plugin 'scrooloose/nerdcommenter'
+" use F4 to display or not function list
+Plugin 'vim-scripts/taglist.vim'
+" quick commands to swtich between source files and header files quickly
+Plugin 'vim-scripts/a.vim'
+" complete code
+" Plugin 'Shougo/neocomplete'
+Plugin 'Shougo/neocomplete'
+" coordinate with neocomplete 
+Plugin 'Shougo/neco-syntax'
+" coordinate with neocomplete 
+Plugin 'Shougo/neosnippet'
+Plugin 'Shougo/neosnippet-snippets'
+Plugin 'scrooloose/syntastic'
+" surroundings
+Plugin 'tpope/vim-surround'
+" display tags
+Plugin 'godlygeek/tabular'
+" command complete like newcomplete
+Plugin 'ervandew/supertab'
+" color molokai
+Plugin 'tomasr/molokai'
+" for statue line
+Plugin 'bling/vim-airline'
+" for tmux clip
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+" for tmux clip
+Plugin 'roxma/vim-tmux-clipboard'
+" for search codd
+Plugin 'mileszs/ack.vim'
+" for html template engine former is jade
+Plugin 'digitaltoad/vim-pug'
+" for git diff 
+Plugin 'airblade/vim-gitgutter'
+
+
+"Plugin 'Shougo/vimshell'
+" plugin from http://vim-scripts.org/vim/scripts.html
+" Plugin 'L9'
+" Git plugin not hosted on GitHub
+" Plugin 'git://git.wincent.com/command-t.git'
+" git repos on your local machine (i.e. when working on your own plugin)
+" Plugin 'file:///home/gmarik/path/to/plugin'
+" The sparkup vim script is in a subdirectory of this repo called vim.
+" Pass the path to set the runtimepath properly.
+" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
+" Avoid a name conflict with L9
+" Plugin 'user/L9', {'name': 'newL9'}
+ 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
  set fileencoding=utf-8
  filetype plugin indent on
  syntax on
@@ -81,75 +151,7 @@ set updatetime=250
  " "set highlight 	" conflict with highlight current line
  " set ignorecase
  " set smartcase
- """"""""""""""""""""""""""""""""""""""""""""""""""""""
-" Vundle设置
-set nocompatible              " be iMproved, required
-filetype off                  " required
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
- 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-" The following are examples of different formats supported.
-" Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
-" filetree 
-Plugin 'scrooloose/nerdtree' 
-" fastter way to comment code
-Plugin 'scrooloose/nerdcommenter'
-" use F4 to display or not function list
-Plugin 'vim-scripts/taglist.vim'
-" quick commands to swtich between source files and header files quickly
-Plugin 'vim-scripts/a.vim'
-" complete code
-Plugin 'Shougo/neocomplete'
-" coordinate with neocomplete 
-Plugin 'Shougo/neco-syntax'
-" coordinate with neocomplete 
-Plugin 'Shougo/neosnippet'
-Plugin 'Shougo/neosnippet-snippets'
-Plugin 'scrooloose/syntastic'
-" surroundings
-Plugin 'tpope/vim-surround'
-" display tags
-Plugin 'godlygeek/tabular'
-" command complete like newcomplete
-Plugin 'ervandew/supertab'
-" color molokai
-Plugin 'tomasr/molokai'
-" for statue line
-Plugin 'bling/vim-airline'
-" for tmux clip
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-" for tmux clip
-Plugin 'roxma/vim-tmux-clipboard'
-" for search codd
-Plugin 'mileszs/ack.vim'
-" for html template engine former is jade
-Plugin 'digitaltoad/vim-pug'
-" for git diff 
-Plugin 'airblade/vim-gitgutter'
 
-
-"Plugin 'Shougo/vimshell'
-" plugin from http://vim-scripts.org/vim/scripts.html
-" Plugin 'L9'
-" Git plugin not hosted on GitHub
-" Plugin 'git://git.wincent.com/command-t.git'
-" git repos on your local machine (i.e. when working on your own plugin)
-" Plugin 'file:///home/gmarik/path/to/plugin'
-" The sparkup vim script is in a subdirectory of this repo called vim.
-" Pass the path to set the runtimepath properly.
-" Plugin 'rstacruz/sparkup', {'rtp': 'vim/'}
-" Avoid a name conflict with L9
-" Plugin 'user/L9', {'name': 'newL9'}
- 
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
 "neocomlete configure''''''''''''''''''''''''''''''''''''''''''''''''''''''
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
