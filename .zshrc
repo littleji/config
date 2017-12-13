@@ -4,6 +4,7 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
+export TERM=xterm-256color
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -121,7 +122,7 @@ source /usr/local/bin/virtualenvwrapper.sh
 autoload -U compinit && compinit -u
 
 # clear the dump file
-alias clzsh="rm ~/.zcomp* ~/.antigen/.zcomp*"
+alias clzsh="rm ~/.zcomp* ~/.antigen/.zcomp* && exec zsh"
 
 #mount  nas files  to /mnt
 alias mnas="expect /etc/rc.d/mount_nas.expect"

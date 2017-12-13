@@ -11,6 +11,11 @@ call vundle#begin()
  
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'klen/python-mode'
+Plugin 'jmcantrell/vim-virtualenv'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-fugitive'
+Plugin 'majutsushi/tagbar'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
 " plugin on GitHub repo
@@ -71,6 +76,10 @@ call vundle#end()            " required
 filetype plugin indent on    " required
  set fileencoding=utf-8
  filetype plugin indent on
+
+ "paste mode keyword
+ set pastetoggle=<F2>
+
  syntax on
 
  "color
