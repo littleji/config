@@ -1,4 +1,4 @@
-# sd886303's vimrc
+# sd886303's config
 
 ## Install
 * git clone this project or just download this pacage
@@ -15,3 +15,4 @@
 
 # License
 MIT
+
