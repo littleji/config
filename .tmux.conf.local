@@ -158,8 +158,9 @@ tmux_conf_theme_right_separator_sub='|'
 #     - #{username}
 #     - #{username_ssh}
 tmux_conf_theme_status_left=' ❐ #S | ↑#{?uptime_d, #{uptime_d}d,}#{?uptime_h, #{uptime_h}h,}#{?uptime_m, #{uptime_m}m,} '
-tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
-
+#tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} , %R , %d %b | #{username}#{root} | #{hostname} '
+tmux_conf_theme_status_right='#{prefix}#{pairing} #{?battery_status, #{battery_status},}#{?battery_bar, #{battery_bar},}#{?battery_percentage, #{battery_percentage},} ,#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %h-%d %R  | #{username}#{root} | #{hostname} '
+#
 # status left style
 tmux_conf_theme_status_left_fg='#000000,#e4e4e4,#e4e4e4'  # black, white , white
 tmux_conf_theme_status_left_bg='#ffff00,#ff00af,#00afff'  # yellow, pink, white blue
@@ -269,3 +270,12 @@ set -g focus-events on
 #tmux continuum
 run-shell ~/.tmux/tmux-continuum/continuum.tmux
 set -g @continuum-save-interval '60'
+
+#tmux-cpu
+#set -g status-right '#{cpu_bg_color} CPU: #{cpu_icon} #{cpu_percentage} | %a %h-%d %H:%M '
+
+#tmux-online_status
+#set -g status-right "Online: #{online_status} | %a %h-%d %H:%M "
+#set -g status-interval 5
+
+

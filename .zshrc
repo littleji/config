@@ -122,10 +122,13 @@ source /usr/local/bin/virtualenvwrapper.sh
 autoload -U compinit && compinit -u
 
 # clear the dump file
-alias clzsh="rm ~/.zcomp* ~/.antigen/.zcomp* && exec zsh"
+alias lj-clzsh="rm ~/.zcomp* ~/.antigen/.zcomp* && exec zsh"
 
 #mount  nas files  to /mnt
-alias mnas="expect /etc/rc.d/mount_nas.expect"
+alias lj-mnas="expect /etc/rc.d/mount_nas.expect"
 
 # shutdown touchpad 
-alias sdtpd="xinput set-int-prop 14 \"Device Enabled\" 8 0"
+alias lj-sdtpd="xinput set-int-prop 14 \"Device Enabled\" 8 0"
+
+# OSX ntfs mount 
+alias lj-mount-ntfs="sudo ~/.scripts/ntfs.sh"
