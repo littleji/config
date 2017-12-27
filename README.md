@@ -12,3 +12,6 @@
 ## Other
 * if you have any question, just make a issue
 * may you have fun
+
+# License
+MIT
