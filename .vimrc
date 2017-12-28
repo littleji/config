@@ -14,7 +14,6 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
 Plugin 'pangloss/vim-javascript'
-Plugin 'tpope/vim-fugitive'
 Plugin 'majutsushi/tagbar'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -58,7 +57,8 @@ Plugin 'digitaltoad/vim-pug'
 Plugin 'airblade/vim-gitgutter'
 " for easymotion
 Plugin 'easymotion/vim-easymotion'
-
+" for 
+Plugin 'tpope/vim-fugitive'
 
 "Plugin 'Shougo/vimshell'
 " plugin from http://vim-scripts.org/vim/scripts.html

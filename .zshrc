@@ -54,7 +54,7 @@ export TERM=xterm-256color
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract docker)
+plugins=(git extract docker command-not-found )
 #plugins=(zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -99,6 +99,7 @@ antigen use oh-my-zsh
 #additional zsh completions
  antigen bundle zsh-users/zsh-completions
  antigen bundle zsh-users/zsh-autosuggestions
+
 #
 # # Load the theme.
 antigen theme ys
