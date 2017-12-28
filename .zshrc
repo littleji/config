@@ -54,7 +54,7 @@ export TERM=xterm-256color
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git extract)
+plugins=(git extract docker)
 #plugins=(zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
@@ -96,6 +96,9 @@ antigen use oh-my-zsh
  antigen bundle zsh-users/zsh-syntax-highlighting
  antigen bundle bobthecow/git-flow-completion
  antigen bundle supercrabtree/k
+#additional zsh completions
+ antigen bundle zsh-users/zsh-completions
+ antigen bundle zsh-users/zsh-autosuggestions
 #
 # # Load the theme.
 antigen theme ys
@@ -132,3 +135,7 @@ alias lj-sdtpd="xinput set-int-prop 14 \"Device Enabled\" 8 0"
 
 # OSX ntfs mount 
 alias lj-mount-ntfs="sudo ~/.scripts/ntfs.sh"
+
+# home brew mirror
+export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
+export HOMEBREW_NO_AUTO_UPDATE=true
