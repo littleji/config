@@ -23,7 +23,7 @@ Plugin 'scrooloose/nerdtree'
 " fastter way to comment code
 Plugin 'scrooloose/nerdcommenter'
 " use F4 to display or not function list
-Plugin 'vim-scripts/taglist.vim'
+"Plugin 'vim-scripts/taglist.vim'
 " quick commands to swtich between source files and header files quickly
 Plugin 'vim-scripts/a.vim'
 " complete code
@@ -52,7 +52,7 @@ Plugin 'roxma/vim-tmux-clipboard'
 " for search codd
 Plugin 'mileszs/ack.vim'
 " for html template engine former is jade
-Plugin 'digitaltoad/vim-pug'
+"Plugin 'digitaltoad/vim-pug'
 " for git diff 
 Plugin 'airblade/vim-gitgutter'
 " for easymotion
@@ -81,6 +81,9 @@ filetype plugin indent on    " required
 
  "paste mode keyword
  set pastetoggle=<F2>
+ "tagbar keyword
+ nmap <F8> :TagbarToggle<CR>
+
 
 " easymotion minimalconf
 let g:EasyMotion_do_mapping = 0 " Disable default mappings
