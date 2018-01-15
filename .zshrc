@@ -114,8 +114,8 @@ setopt HIST_IGNORE_ALL_DUPS
 printf '\e[?2004l'
 
 #python virtualenvwrapper.sh
-export WORKON_HOME=~/Projects/virtualenv
-source /usr/local/bin/virtualenvwrapper.sh
+#export WORKON_HOME=~/Projects/virtualenv
+#source /usr/local/bin/virtualenvwrapper.sh
 
 #  autojump.sh
 ## for linux
@@ -140,3 +140,6 @@ alias lj-mount-ntfs="sudo ~/.scripts/ntfs.sh"
 # home brew mirror
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export HOMEBREW_NO_AUTO_UPDATE=true
+
+# thefuck
+eval $(thefuck --alias) 

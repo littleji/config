@@ -10,7 +10,7 @@
     type = cat-file -t
     dump = cat-file -p
 [merge]
-    tool = diff3
+	tool = vimdiff3
 [core]
 	excludesfile = /Users/apple/.gitignore_global
 [difftool "sourcetree"]

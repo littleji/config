@@ -13,7 +13,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'klen/python-mode'
 Plugin 'jmcantrell/vim-virtualenv'
-Plugin 'pangloss/vim-javascript'
+" Plugin 'pangloss/vim-javascript'
 Plugin 'majutsushi/tagbar'
 " The following are examples of different formats supported.
 " Keep Plugin commands between vundle#begin/end.
@@ -34,6 +34,7 @@ Plugin 'Shougo/neco-syntax'
 " coordinate with neocomplete 
 Plugin 'Shougo/neosnippet'
 Plugin 'Shougo/neosnippet-snippets'
+
 Plugin 'scrooloose/syntastic'
 " surroundings
 Plugin 'tpope/vim-surround'
@@ -76,13 +77,17 @@ Plugin 'tpope/vim-fugitive'
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
+
+
  set fileencoding=utf-8
- filetype plugin indent on
+
 
  "paste mode keyword
  set pastetoggle=<F2>
  "tagbar keyword
  nmap <F8> :TagbarToggle<CR>
+ "gitgutter to set not real-time compare
+ let g:gitgutter_realtime = 0
 
 
 " easymotion minimalconf
@@ -148,6 +153,13 @@ set updatetime=250
 
   "tabular"align anything 
   let g:tabular_loaded = 1
+
+  "pymode
+  let g:pymode_lint=0
+  "let g:pymode_lint_checkers = ['pyflakes']
+  "let g:pymode_rope=0
+  "let g:pymode_rope_lookup_project=0
+  
 
 
  "editor settings
