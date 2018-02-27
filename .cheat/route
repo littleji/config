@@ -1,0 +1,31 @@
+添加到主机的路由
+
+# route add -host 192.168.1.2 dev eth0 
+# route add -host 10.20.30.148 gw 10.20.30.40     #添加到10.20.30.148的网管
+添加到网络的路由
+
+# route add -net 10.20.30.40 netmask 255.255.255.248 eth0   #添加10.20.30.40的网络
+# route add -net 10.20.30.48 netmask 255.255.255.248 gw 10.20.30.41 #添加10.20.30.48的网络
+# route add -net 192.168.1.0/24 eth1
+添加默认路由
+
+# route add default gw 192.168.1.1
+删除路由
+
+# route del -host 192.168.1.2 dev eth0:0
+# route del -host 10.20.30.148 gw 10.20.30.40
+# route del -net 10.20.30.40 netmask 255.255.255.248 eth0
+# route del -net 10.20.30.48 netmask 255.255.255.248 gw 10.20.30.41
+# route del -net 192.168.1.0/24 eth1
+# route del default gw 192.168.1.1
+#
+
+永久静态路由需要写到 /etc/sysconfig/network-scripts/route-interface 文件中，比如添加两条静态路由：
+
+# vi /etc/sysconfig/network-scripts/route-enp0s3
+# 10.15.150.0/24 via 192.168.150.253 dev enp0s3
+# 10.25.250.0/24 via 192.168.150.253 dev enp0s3
+重启计算机，或者重新启用设备enp0s3才能生效。
+# nmcli dev connect enp0s3
+
+

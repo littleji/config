@@ -1,0 +1,2 @@
+socksParentProxy = "localhost:1080"
+socksProxyType = socks5
