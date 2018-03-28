@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+export PATH=$PATH:/users/apple/go/bin
 
 
 # Path to your oh-my-zsh installation.
@@ -137,9 +137,23 @@ alias lj-sdtpd="xinput set-int-prop 14 \"Device Enabled\" 8 0"
 # OSX ntfs mount 
 alias lj-mount-ntfs="sudo ~/.scripts/ntfs.sh"
 
+# OSX sudo wireshark
+alias lj-wireshark="sudo ~/.scripts/wireshark.sh"
+
 # home brew mirror
 export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles
 export HOMEBREW_NO_AUTO_UPDATE=true
 
 # thefuck
 eval $(thefuck --alias) 
+
+# proxy
+alias proxy='
+    export http_proxy=socks5://127.0.0.1:1080 \
+    export https_proxy=socks5://127.0.0.1:1080
+    '
+#alias proxy='export https_proxy=socks5://127.0.0.1:1080'
+#alias proxy='export all_proxy=http://127.0.0.1:8123'
+alias unproxy='
+    unset http_proxy &&  unset https_proxy
+    '

@@ -1,0 +1,2 @@
+# go get with proxy
+ http_proxy=socks5://localhost:1080 go get -v github.com/irfansharif/cfilter

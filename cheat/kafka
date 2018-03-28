@@ -1,0 +1,17 @@
+# create a topic with one copy and 3 partitions
+ bin/kafka-topics.sh --create --zookeeper zoo01:2181 --replication-factor 1 --partitions 3 --topic cti-test
+
+# describe a topic
+bin/kafka-topics.sh --describe --zookeeper zoo01:2181  --topic cti-test
+
+# delete a topic
+bin/kafka-topics.sh --delete  --zookeeper zoo01:2181 --topic cti-test
+
+# producer
+bin/kafka-console-producer.sh --broker-list kafka01:9092 --topic cti-test
+
+# consumer
+bin/kafka-console-consumer.sh --bootstrap-server kafka01:9092  --topic cti-test --from-beginning
+
+
+
