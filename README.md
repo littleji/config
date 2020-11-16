@@ -1,4 +1,4 @@
-# sd886303's config
+# littleji's config
 
 ## Install
 * git clone this project or just download this pacage
