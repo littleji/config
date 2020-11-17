@@ -1,0 +1,23 @@
+version: '3'
+services:
+  postgres01:
+    image: 10.20.10.110/library/postgres:9.6.8
+    container_name: cti-postgres
+    hostname: postgres01.cti
+    ports:
+      - "15432:5432"
+    environment: 
+      POSTGRES_PASSWORD: postgres
+    networks:
+         cti:
+          ipv4_address: 172.16.4.1
+
+networks:
+  cti:
+    external:
+      name: cti_cti 
+    #networks:
+    #  cti:
+    #    ipv4_address: 172.16.3.1
+
+

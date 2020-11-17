@@ -1,10 +1,13 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$PATH:/users/apple/go/bin
+export GOPATH=/Users/apple/go
+#export GOROOT=/Users/apple/go
 
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
 export TERM=xterm-256color
+export SHELL=/bin/zsh
+export PATH=$PATH:$GOPATH/bin
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -157,3 +160,15 @@ alias proxy='
 alias unproxy='
     unset http_proxy &&  unset https_proxy
     '
+export CFLAGS="-I$(brew --prefix openssl)/include"
+export LDFLAGS="-L$(brew --prefix openssl)/lib"
+export CXXFLAGS="-std=c++11"
+export CGO_CXXFLAGS=$CGO_CXXFLAGS" -std=c++11"
+#enable c++11 feature
+alias g++='g++ -std=c++11'
+export LIBTOOL="glibtool"
+export LIBTOOLIZE="glibtoolize make"
+
+# default use python3 as python
+alias python="python3.6"
+alias pip="pip3.6"

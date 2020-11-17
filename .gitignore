@@ -3,3 +3,4 @@
 README.html
 .DS_Store
 *.swp
+docker/mysql/data

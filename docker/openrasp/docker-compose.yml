@@ -1,0 +1,178 @@
+version: '3'
+services:
+  zoo01:
+    image: wurstmeister/zookeeper
+    container_name: rasp-zoo01
+    hostname: zoo01.rasp
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zoo01:2888:3888 #server.2=0.0.0.0:2888:3888 server.3=zoo3:2888:3888
+    ports:
+      - "12181:2181"
+    networks:
+      rasp:
+        ipv4_address: 172.16.1.1
+    extra_hosts:
+      - "zoo01.rasp:127.0.0.1"
+      - "kafka01.rasp:172.16.2.1"
+      - "zoo01.rasp:172.16.1.1"
+      - "es01.rasp:172.16.4.1"
+      - "es02.rasp:172.16.4.2"
+      - "es03.rasp:172.16.4.3"
+
+  kafka01:
+    image: wurstmeister/kafka 
+    #image: 10.20.10.110/rasp/kafka:1.0
+    container_name: rasp-kafka01
+    hostname: kafka01.rasp
+    depends_on: 
+      - zoo01
+    #build: .
+    ports:
+      - "19092:9092"
+    networks:
+      rasp:
+        ipv4_address: 172.16.2.1
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_PORT: 9092
+      KAFKA_ADVERTISED_HOST_NAME: kafka01.rasp
+      KAFKA_ZOOKEEPER_CONNECT: zoo01:2181
+    extra_hosts:
+      - "kafka01.rasp:127.0.0.1"
+      - "kafka01.rasp:172.16.2.1"
+      - "zoo01.rasp:172.16.1.1"
+      - "es01.rasp:172.16.4.1"
+      - "es02.rasp:172.16.4.2"
+      - "es03.rasp:172.16.4.3"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+  es01:
+    image: elasticsearch:6.8.12
+    container_name: rasp-es01
+    hostname: es01.rasp
+    environment:
+      - node.name=rasp-es01
+      - cluster.name=es-docker-cluster
+    #  - discovery.seed_hosts=rasp-es02,rasp-es03
+    #  - cluster.initial_master_nodes=rasp-es01,rasp-es02,rasp-es03
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data01:/usr/share/elasticsearch/data
+    ports:
+      - 19200:9200
+    networks:
+      rasp:
+        ipv4_address: 172.16.4.1
+    extra_hosts:
+      - "es01.rasp:127.0.0.1"
+      - "kafka01.rasp:172.16.2.1"
+      - "zoo01.rasp:172.16.1.1"
+      - "es01.rasp:172.16.4.1"
+      - "es02.rasp:172.16.4.2"
+      - "es03.rasp:172.16.4.3"
+  es02:
+    image: elasticsearch:6.8.12
+    container_name: rasp-es02
+    hostname: es02.rasp
+    environment:
+      - node.name=rasp-es02
+      - cluster.name=es-docker-cluster
+      - "discovery.zen.ping.unicast.hosts=es01.rasp"
+#      - discovery.seed_hosts=rasp-es01,rasp-es03
+ #     - cluster.initial_master_nodes=rasp-es01,rasp-es02,rasp-es03
+      - bootstrap.memory_lock=true
+      #- "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data02:/usr/share/elasticsearch/data
+    networks:
+      rasp:
+        ipv4_address: 172.16.4.2
+    extra_hosts:
+      - "es02.rasp:127.0.0.1"
+      - "kafka01.rasp:172.16.2.1"
+      - "zoo01.rasp:172.16.1.1"
+      - "es01.rasp:172.16.4.1"
+      - "es02.rasp:172.16.4.2"
+      - "es03.rasp:172.16.4.3"
+
+  es03:
+    image: elasticsearch:6.8.12
+    container_name: rasp-es03
+    hostname: es03.rasp
+    environment:
+      - node.name=rasp-es03
+      - cluster.name=es-docker-cluster
+      #- discovery.seed_hosts=rasp-es01,rasp-es02
+      #- cluster.initial_master_nodes=rasp-es01,rasp-es02,rasp-es03
+      - "discovery.zen.ping.unicast.hosts=es01.rasp"
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - data03:/usr/share/elasticsearch/data
+    networks:
+      rasp:
+        ipv4_address: 172.16.4.3
+    extra_hosts:
+      - "es03.rasp:127.0.0.1"
+      - "kafka01.rasp:172.16.2.1"
+      - "zoo01.rasp:172.16.1.1"
+      - "es01.rasp:172.16.4.1"
+      - "es02.rasp:172.16.4.2"
+      - "es03.rasp:172.16.4.3"
+
+  mongo01:
+    image: mongo
+    container_name: rasp-mongo01
+    hostname: mongo01.rasp
+    ports:
+      - "27017:27017"
+    volumes:
+      - data04:/data/db
+    command: mongod
+    networks:
+      rasp:
+        ipv4_address: 172.16.5.1
+    extra_hosts:
+      - "mongo01.rasp:127.0.0.1"
+      - "kafka01.rasp:172.16.2.1"
+      - "zoo01.rasp:172.16.1.1"
+      - "es01.rasp:172.16.4.1"
+      - "es02.rasp:172.16.4.2"
+      - "es03.rasp:172.16.4.3"
+      - "mongo01.rasp:172.16.5.1"
+  
+volumes:
+  data01:
+    driver: local
+  data02:
+    driver: local
+  data03:
+    driver: local
+  data04:
+    driver: local
+
+networks:
+  rasp:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 172.16.0.0/16

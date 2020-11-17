@@ -1,0 +1,71 @@
+version: '3'
+services:
+  redis01:
+    image: registry.docker-cn.com/redislabs/rebloom:latest
+    container_name: cti-redis01
+    hostname: redis01.cti
+    ports:
+      - "16379:6379"
+    networks:
+      cti:
+        ipv4_address: 172.16.3.1
+    extra_hosts:
+      - "redis01.cti:127.0.0.1"
+      - "kafka01.cti:172.16.2.1"
+      - "zoo01.cti:172.16.1.1"
+      - "redis01.cti:172.16.3.1"
+
+  zoo01:
+    image: registry.docker-cn.com/wurstmeister/zookeeper
+    container_name: cti-zoo01
+    hostname: zoo01.cti
+    environment:
+      ZOO_MY_ID: 1
+      ZOO_SERVERS: server.1=zoo01:2888:3888 #server.2=0.0.0.0:2888:3888 server.3=zoo3:2888:3888
+    ports:
+      - "12181:2181"
+    networks:
+      cti:
+        ipv4_address: 172.16.1.1
+    extra_hosts:
+      - "zoo01.cti:127.0.0.1"
+      - "kafka01.cti:172.16.2.1"
+      - "zoo01.cti:172.16.1.1"
+      - "redis01.cti:172.16.3.1"
+
+  kafka01:
+    image: registry.docker-cn.com/wurstmeister/kafka 
+    #image: 10.20.10.110/cti/kafka:1.0
+    container_name: cti-kafka01
+    hostname: kafka01.cti
+    depends_on: 
+      - zoo01
+    #build: .
+    ports:
+      - "19092:9092"
+    networks:
+      cti:
+        ipv4_address: 172.16.2.1
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_PORT: 9092
+      KAFKA_ADVERTISED_HOST_NAME: kafka01.cti
+      KAFKA_ZOOKEEPER_CONNECT: zoo01:2181
+    extra_hosts:
+      - "kafka01.cti:127.0.0.1"
+      - "kafka01.cti:172.16.2.1"
+      - "zoo01.cti:172.16.1.1"
+      - "redis01.cti:172.16.3.1"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+
+networks:
+  cti:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+      -
+        subnet: 172.16.0.0/16
+

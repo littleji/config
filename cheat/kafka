@@ -13,5 +13,7 @@ bin/kafka-console-producer.sh --broker-list kafka01:9092 --topic cti-test
 # consumer
 bin/kafka-console-consumer.sh --bootstrap-server kafka01:9092  --topic cti-test --from-beginning
 
+# consumer offset checker
+bin/kafka-run-class.sh kafka.tools.ConsumerOffsetChecker --broker-info --group $group --topic $topic --zookeeper $zoo01:2181
 
 

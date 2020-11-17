@@ -1,0 +1,16 @@
+{
+  "registry-mirrors" : [
+    "https://reg-mirror.qiniu.com",
+    "https://mirror.ccs.tencentyun.com",
+    "https://oqbes3w7.mirror.aliyuncs.com",
+    "http://f1361db2.m.daocloud.io",
+    "http://docker.mirrors.ustc.edu.cn",
+    "http://hub-mirror.c.163.com"
+  ],
+  "insecure-registries" : [
+    "registry.docker-cn.com",
+    "docker.mirrors.ustc.edu.cn"
+  ],
+  "debug" : true,
+  "experimental" : true
+}

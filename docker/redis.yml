@@ -1,0 +1,21 @@
+version: '3'
+services:
+  redis01:
+    image: registry.docker-cn.com/redislabs/rebloom:latest
+    container_name: cti-redis01
+    hostname: redis01.cti
+    ports:
+      - "16379:6379"
+    networks:
+         cti:
+          ipv4_address: 172.16.3.1
+
+networks:
+  cti:
+    external:
+      name: kafkadocker_cti 
+    #networks:
+    #  cti:
+    #    ipv4_address: 172.16.3.1
+
+

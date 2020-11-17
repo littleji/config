@@ -1,0 +1,22 @@
+version: "3.3"
+services:
+ mysql56:
+  image: mysql:5.6.43
+  restart: always
+  command: --default-authentication-plugin=mysql_native_password #这行代码解决无法访问的问题
+  networks:
+   - dev
+  ports:
+   - "13306:3306"
+  environment:
+   MYSQL_ROOT_PASSWORD: 123456
+   MYSQL_USER: 'test'
+   MYSQL_PASS: 'test'
+  volumes:
+   - ./data:/var/lib/mysql
+   - /root/compose/mysql/conf:/etc/mysql
+
+networks:
+ dev:
+  driver: bridge
+
